@@ -1,12 +1,22 @@
 import { Controller, Get } from '@nestjs/common';
-import { AppService } from './app.service';
+import { TaskService } from './task/task.service';
+import { TaskEntity } from './task/task.entity';
+import { run } from './utils/fillTestData';
 
 @Controller()
 export class AppController {
-  constructor(private readonly appService: AppService) {}
+  constructor(private taskService: TaskService) {
+  }
 
   @Get()
-  getHello(): string {
-    return this.appService.getHello();
+  getHello(): Promise<TaskEntity[]> {
+    return this.taskService.getTask();
+  }
+
+  @Get('/fill')
+  fill() {
+    run();
+
+    return 'OK';
   }
 }
