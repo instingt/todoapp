@@ -1,0 +1,20 @@
+language: node_js
+
+node_js:
+  - "12"
+
+jobs:
+  include:
+    - stage: test
+      script: npm run test
+    - stage: lint
+      script: npm run lint
+    - stage: deploy
+      script: echo deploy
+
+
+stages:
+  - lint
+  - test
+  - name: deploy
+    if: branch = master
