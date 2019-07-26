@@ -12,7 +12,7 @@ jobs:
       name: "Lint"
     - stage: build
       name: "Build"
-      script: npn run build
+      script: npm run build
     - stage: deploy
       script: echo deploy
 
