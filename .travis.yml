@@ -13,10 +13,10 @@ jobs:
     - stage: lint
       script: npm run lint
     - stage: deploy
-      script: "echo "DEPLOY THIS APP!!"
+      script: "echo DEPLOY THIS APP!!"
 
 stages:
   - test
   - lint
   - deploy
-#    if: branch = master
+    if: branch = master
