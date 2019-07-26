@@ -17,4 +17,4 @@ jobs:
 stages:
   - test
   - name: deploy
-    if: branch = master
+    if: head_branch = master
