@@ -17,4 +17,4 @@ jobs:
 stages:
   - test
   - name: deploy
-    if: branch = master AND type != pull_request
+    if: (tag =~ ^v) AND (branch = master)
