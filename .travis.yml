@@ -8,15 +8,15 @@ node_js:
 
 jobs:
   include:
-    - stage: "Test"
+    - stage: test
       script: npm run test
-    - stage: "Lint"
+    - stage: lint
       script: npm run lint
-    - stage: "Deploy"
+    - stage: deploy
       script: "echo "DEPLOY THIS APP!!"
 
 stages:
-  - Test
-  - Link
-  - Deploy
+  - test
+  - lint
+  - deploy
     if: branch = master
