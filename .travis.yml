@@ -10,11 +10,15 @@ jobs:
       script: npm run test
     - script: npm run lint
       name: "Lint"
+    - stage: build
+      name: "Build"
+      script: npn run build
     - stage: deploy
       script: echo deploy
 
 
 stages:
   - test
+  - build
   - name: deploy
     if: (tag =~ ^v) AND (branch = master)
