@@ -3,28 +3,18 @@ language: node_js
 node_js:
   - "12"
 
-#jobs:
-#  include:
-#    - stage: test
-#      script: npm run test
-#    - stage: lint
-#      script: npm run lint
-#    - stage: deploy
-#      script: "echo DEPLOY THIS APP!!"
-
-#stages:
-#  - test
-#  - lint
-#  - deploy
-#    if: branch = master
-
-
 jobs:
   include:
-  - stage: test
-    script: npm run test
-  - stage: lint
-    script: npm run lint
-  - stage: deploy
-    script: echo deploy
-    id: branch = master
+    - stage: test
+      script: npm run test
+    - stage: lint
+      script: npm run lint
+    - stage: deploy
+      script: echo deploy
+
+
+stages:
+  - test
+  - lint
+  - deploy
+    if: branch = master
