@@ -1,29 +1,30 @@
 language: node_js
-
 branches:
   only:
     - master
-    - /^v\d/
-
+    - "/^v\\d/"
 node_js:
-  - "12"
-
+  - '12'
 jobs:
   include:
     - stage: test
-      name: "Unit Tests"
+      name: Unit Tests
       script: npm run test
     - script: npm run lint
-      name: "Lint"
+      name: Lint
     - stage: build
-      name: "Build"
-      script: npm run build
+      name: Build
+      script:
+        - npm run build
+        - ./scripts/create_docker.sh
     - stage: deploy
       script: echo deploy
-
-
 stages:
   - test
   - build
   - name: deploy
     if: tag =~ ^v
+env:
+  global:
+    - secure: PWTatuGBKupWybKuMsa6X45Wpxkugoz0LiWN4YVUfMycxl3dt3YOsOrViK8ZZxZOpYRlxXIlmqItax6DvLWqHBL6GbelxA0KkJQO3MgGy2jEw6TedYrQcW44g14iTMvoGkyFYREM3S1urCPN6yHWn1w1S28MZpQ6fwfMRMgBwSWiVvIQC6zn29zzCuPNoJIkXPMVI8Vasw0s9ut2eK1ZMd+kz57UHBFX2cFhb2ipDbIPT8i2mkbr5azzN0Omqd53M5jPlCvueuzAUaqhSo+vvud32EJSCzhmroN1VdVFZ4GtLqWfiDwf6CU2OwAwMU8xEcV8UKtWiJ25GfYy5k8sGIIGBwqNycrYjvc1aUE9/59kHuyxmV8n0/iVa927qLE9x4u1YKsRNjuIw7f95ZqBiA7qghL7zHyzEDvUmgS9NVY1R5LrYFv7QT4fYN4EzH1nLIdZcU5EBMSh9iGAqk1h4BUanhdzLRMSP6ugDZkpkUc37jTujDnHjz99BzYrAV998nljJ2pmTZIY+9SyahszMvHKRZsnAwh3EXB0xy7eWOOdacFizbDIzq5WWrEHHkTxIu8a9Q0czlm7P8EKY19Gns0oZk+TvXkNg8HvYrgiy1fuTJh1pt1KaMl/f9qxIEQJpfSbA9I3qaONl3YdPZXJMaeMq333Pp0MsCxNBSfzuRg=
+    - secure: bV+Z5hgGa8foUxaPUIW15AipUv5eqzJBNTnr413QObyB/eYudLpJ5ot3AZ7XXL3AX6jAHStt629BejMfyJUtooHF2kRNGRG0EX9KS2eQ6ON0Q+tLa+7OYeJvbBDNNSzRJbeq1/BLjpFDxM+RWtBaycSLshLNsMYlOMwWo1Y6Vg9KQkxAzBD2UAJMJxW/KcGPmdN/LTp5TENXBMkGUo4h0o5QR7JCMJe+QqJc6O3yxB3dID35iGYgtcKisx7/wq5RVpItf5Zy7nQlEQSeHZZ9Um2onlGT7PqtIaD50XK2fCMmdh+5sZor4VkwvRE5hC+Fkk5/OA4fLWdtYB8FAmW1v/SIT8jlv+CSj/hiEWUvEN818oovGA0NyzRVg9j279JPtE5FU/3XSmCx4dTAMRc2oSK57VQyK5tEOFJk5qDLJGUEgTTpzUETOGGNT0S4vUkw5vh2Ufqf3H1XaTUdGNpfzL3zDt7S+L8Ec01aR2ONkqOs4FrCiTtINXTeDYBhPgPHF713rmjoUKK9+K6balzvfdw9UgJsfIKJu8SysDaVO7ghDfxoVGmO/+mze9qlUgpvwKCsRI1BpF2VqzJdeIjrzhcVFJW/DaLaIwCrZRy80KrUKrul1+xzHp/hcUfRkiyviiRkienDRxBd7j+au95nMUbjz+AlbqfAxnpELpUA+5c=
