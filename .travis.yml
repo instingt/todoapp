@@ -5,7 +5,7 @@ node_js:
 
 jobs:
   include:
-    - stage: "Tests"
+    - stage: test
       name: "Unit Tests"
       script: npm run test
     - script: npm run lint
