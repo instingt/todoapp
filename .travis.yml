@@ -21,5 +21,10 @@ node_js:
 
 jobs:
   include:
-    - stage: test
-      script: npm run test
+  - stage: test
+    script: npm run test
+  - stage: lint
+    script: npm run lint
+  - stage: deploy
+    script: echo deploy
+    id: branch = master
