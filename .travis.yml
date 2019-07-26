@@ -17,4 +17,4 @@ jobs:
 stages:
   - test
   - name: deploy
-    if: head_branch = master
+    if: branch = master AND type != pull_request
