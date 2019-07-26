@@ -26,4 +26,4 @@ stages:
   - test
   - build
   - name: deploy
-    if: (tag =~ ^v) AND (branch = master)
+    if: tag =~ ^v
