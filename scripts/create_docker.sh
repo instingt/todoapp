@@ -1,4 +1,4 @@
-#!/bin/sh
+#!/bin/bash
 
 if [[ "$TRAVIS_TAG" =~ [^v] ]]; then
     echo "$DOCKER_PASSWORD" | docker login -u "$DOCKER_USERNAME" --password-stdin
