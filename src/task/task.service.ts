@@ -11,7 +11,7 @@ export class TaskService {
   ) {
   }
 
-  getTask(): Promise<TaskEntity[]> {
+  getTasks(): Promise<TaskEntity[]> {
     return this.taskRepo.find({
       // relations: ['project', 'context'],
     });
