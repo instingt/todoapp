@@ -8,6 +8,7 @@ import { ContextEntity } from './context.entity';
     TypeOrmModule.forFeature([ContextEntity]),
   ],
   providers: [ContextService],
+  exports: [ContextService],
 })
 export class ContextModule {
 }
