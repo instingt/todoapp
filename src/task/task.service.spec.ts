@@ -3,23 +3,24 @@ import { TaskService } from './task.service';
 import { getRepositoryToken } from '@nestjs/typeorm';
 import { Repository } from 'typeorm';
 import { TaskEntity } from './task.entity';
+import { TaskRepository } from './task.repository';
 
 describe('TaskService', () => {
   let service: TaskService;
-  let repo: Repository<TaskEntity>;
+  let repo: TaskRepository;
 
   beforeEach(async () => {
     const module: TestingModule = await Test.createTestingModule({
       providers: [
         {
-          provide: getRepositoryToken(TaskEntity),
+          provide: getRepositoryToken(TaskRepository),
           useClass: Repository,
         },
         TaskService],
     }).compile();
 
     service = module.get<TaskService>(TaskService);
-    repo = module.get(getRepositoryToken(TaskEntity));
+    repo = module.get(getRepositoryToken(TaskRepository));
   });
 
   it('should be defined', () => {

@@ -1,4 +1,4 @@
-import { Column, CreateDateColumn, Entity, ManyToOne, PrimaryGeneratedColumn } from 'typeorm';
+import { Column, Entity, ManyToOne, PrimaryGeneratedColumn } from 'typeorm';
 import { ProjectEntity } from '../project/project.entity';
 import { ContextEntity } from '../context/context.entity';
 
@@ -11,10 +11,16 @@ export class TaskEntity {
   title: string;
 
   // @IsNotEmpty()
-  @CreateDateColumn()
+  @Column({
+    nullable: true,
+    default: null,
+  })
   startDate: Date;
 
-  @CreateDateColumn()
+  @Column({
+    nullable: true,
+    default: null,
+  })
   dueDate: Date;
 
   @Column({
