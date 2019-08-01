@@ -1,4 +1,4 @@
-import { Controller, Get } from '@nestjs/common';
+import { Body, Controller, Get, Post } from '@nestjs/common';
 import { TaskService } from './task/task.service';
 import { TaskEntity } from './task/task.entity';
 import { run } from './utils/fillTestData';
@@ -6,6 +6,7 @@ import { ProjectEntity } from './project/project.entity';
 import { ProjectService } from './project/project.service';
 import { ContextEntity } from './context/context.entity';
 import { ContextService } from './context/context.service';
+import { TaskDto } from './task/task.dto';
 
 @Controller()
 export class AppController {
@@ -29,6 +30,11 @@ export class AppController {
   @Get('/contexts')
   getContexts(): Promise<ContextEntity[]> {
     return this.contextService.getContexts();
+  }
+
+  @Post('/task')
+  createTask(@Body() task: TaskDto): Promise<TaskEntity> {
+    return this.taskService.createTask(task);
   }
 
   @Get('/fill')
