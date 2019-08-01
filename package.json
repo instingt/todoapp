@@ -1,8 +1,12 @@
 {
   "name": "todoapp",
   "version": "0.0.1",
-  "description": "",
-  "author": "",
+  "description": "Backend for Todo application",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/instingt/todoapp"
+  },
+  "author": "Vitaliy Kataev <vita@kataev.pro>",
   "license": "MIT",
   "scripts": {
     "build": "rimraf dist && tsc -p tsconfig.build.json",
