@@ -7,25 +7,25 @@ export class TaskDto {
 
   @IsString()
   @IsOptional()
-  description: string;
+  description?: string;
 
   @IsNumber()
   @IsOptional()
-  startDate: number;
+  startDate?: number;
 
   @IsNumber()
   @IsOptional()
-  dueDate: number;
+  dueDate?: number;
 
   @IsBoolean()
   @IsOptional()
-  isCompleted: boolean;
+  isCompleted?: boolean;
 
   @IsNumber()
   @IsOptional()
-  contextId: number;
+  contextId?: number;
 
   @IsNumber()
   @IsOptional()
-  projectId: number;
+  projectId?: number;
 }

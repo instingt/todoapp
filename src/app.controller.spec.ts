@@ -9,6 +9,7 @@ import { ProjectServiceMock } from './project/project.service.mock';
 import { TaskEntity } from './task/task.entity';
 import { ProjectEntity } from './project/project.entity';
 import { ContextEntity } from './context/context.entity';
+import { TaskDto } from './task/task.dto';
 
 describe('AppController', () => {
   let appController: AppController;
@@ -68,6 +69,19 @@ describe('AppController', () => {
       appController.getContexts();
 
       expect(mock).toBeCalled();
+    });
+
+    it('should call create task on post task', () => {
+      const task: TaskDto = {
+        title: 'Some task',
+      };
+      const createdTask = new TaskEntity();
+
+      const mock = jest.spyOn(taskService, 'createTask').mockResolvedValue(createdTask);
+
+      appController.createTask(task);
+
+      expect(mock).toBeCalledWith(task);
     });
   });
 });
